@@ -185,17 +185,17 @@ stages:
         artifactName: FhirConverterBuild
         downloadPath: $(System.DefaultWorkingDirectory)
     - script: |
-        docker run --rm -d -p 5000:5000 --name registryOSX registry:2
-      displayName: start registryOSX
+        docker run --rm -d -p 5000:5000 --name registry registry:2
+      displayName: start registry
     - script:
         dotnet test FhirConverterBuild/**/*FunctionalTests.dll
       displayName: Functional Tests
     - task: Docker@2
-      displayName: stop registryOSX
+      displayName: stop registry
       condition: succeededOrFailed()
       inputs:
         command: stop
-        container: registryOSX
+        container: registry
     
     #need delete files for self-hosted agent
     - task: DeleteFiles@1
