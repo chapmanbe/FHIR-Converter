@@ -11,14 +11,12 @@
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
-    <folder>\</folder>
     <CopyExecutable>copy</CopyExecutable>
   </PropertyGroup>
 
-    <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
-        <folder>/</folder>
-        <CopyExecutable>cp</CopyExecutable>
-    </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
+    <CopyExecutable>cp</CopyExecutable>
+  </PropertyGroup>
   
     
   <ItemGroup>
