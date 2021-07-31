@@ -59,7 +59,7 @@
   </ItemGroup>
   
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="mkdir ..\..\bin &amp; tar -zcvf ../../bin/Hl7v2DefaultTemplates.tar.gz -C ../../data/Templates/Hl7v2 ." />
+    <Exec Command="mkdir ../../bin &amp; tar -zcvf ../../bin/Hl7v2DefaultTemplates.tar.gz -C ../../data/Templates/Hl7v2 ." />
     <Exec Command="tar -zcvf ../../bin/CcdaDefaultTemplates.tar.gz -C ../../data/Templates/Ccda ." />
   </Target>
   
@@ -67,13 +67,13 @@
     <DownloadFile SourceUrl="$(OrasWinUrl)" DestinationFolder="../../bin">
       <Output TaskParameter="DownloadedFile" ItemName="Content" />
     </DownloadFile>
-    <Exec Command="tar -xvf ..\..\bin\oras_0.8.1_windows_amd64.tar.gz -C ..\..\bin &amp; $(CopyExecutable) ..\..\bin\oras.exe ." />
+    <Exec Command="tar -xvf ../../bin/oras_0.8.1_windows_amd64.tar.gz -C ../../bin &amp; $(CopyExecutable) ../../bin/oras.exe ." />
   </Target>
     
    <Target Name="DownloadOSXOrasFile" BeforeTargets="Build">
     <DownloadFile SourceUrl="$(OrasOSXUrl)" DestinationFolder="../../bin">
       <Output TaskParameter="DownloadedFile" ItemName="Content" />
     </DownloadFile>
-    <Exec Command="tar -xvf ../../bin/oras_$(OrasVersion)_darwin_amd64.tar.gz -C ../../bin &amp;&amp; $(CopyExecutable) ..\..\bin\oras .\oras-osx" />
+    <Exec Command="tar -xvf ../../bin/oras_$(OrasVersion)_darwin_amd64.tar.gz -C ../../bin &amp;&amp; $(CopyExecutable) ../../bin/oras ./oras-osx" />
   </Target>
 </Project>
