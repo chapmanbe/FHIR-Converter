@@ -21,8 +21,7 @@ variables:
 
 stages:
 - stage: Build
-  pool:
-      vmImage: 'windows-latest'
+  pool: CompassMacHosted
   jobs:
   - job: Build
     steps:

@@ -103,7 +103,6 @@ namespace Microsoft.Health.Fhir.TemplateManagement.FunctionalTests
                 _isOrasValid = false;
             }
         }
-
         // Pull one layer image with valid sequence number, successfully pulled with base layer copied.
         [Fact]
         public async Task GivenOneLayerImageWithValidSequenceNumber_WhenPulled_ArtifactsWillBePulledWithBaseLayerCopiedAsync()

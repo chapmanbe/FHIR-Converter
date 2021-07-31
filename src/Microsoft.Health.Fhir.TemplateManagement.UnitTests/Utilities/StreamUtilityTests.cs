@@ -39,6 +39,15 @@ namespace Microsoft.Health.Fhir.TemplateManagement.UnitTests.Utilities
         }
 
         [Fact]
+
+        public void TestEOL()
+        {
+            var rawBytes = File.ReadAllBytes("Utilities/testeol.json");
+            var digest = StreamUtility.CalculateDigestFromSha256(rawBytes);
+            Assert.Equal("sha256:e6b835aefc90716c4aff3efdce1251088786a6e97a1a32ffd80334403eec83bf", digest);
+        }
+
+        [Fact]
         public void GivenACompressedTarGzFile_WhenDecompress_UnCompressedFilesShouldBeReturned()
         {
             var rawBytes = File.ReadAllBytes(_tarGzFilePath);
